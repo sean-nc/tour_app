@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use Devise to create admin/user
 gem 'devise'
+
+# Payment method
+gem 'stripe'
