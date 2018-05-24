@@ -12,17 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20180523232621) do
 
-  create_table "bookings", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string "title"
     t.datetime "when"
-    t.float "duration"
+    t.string "duration"
     t.text "details"
     t.integer "max_bookings"
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "creator_id"
-    t.index ["creator_id"], name: "index_bookings_on_creator_id"
+    t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
   create_table "users", force: :cascade do |t|
