@@ -9,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
       if user_signed_in?
         redirect_to root_path
       else
+        flash[:alert] = "You are not authorized to create an account"
         redirect_to new_user_session_path
       end
     end

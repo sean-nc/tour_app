@@ -1,17 +1,26 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= form_for(@event) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.label :when %>
+  <%= f.date_select :when, :start_year => Date.today.year %><br/>
+  <%= f.time_select :when, :ignore_date => true, ampm: true %><br/>
+
+  <%= f.label :details %>
+  <%= f.text_area :details %>
+
+  <%= f.label :duration %>
+  <%= f.text_field :duration %>
+
+  <%= f.label :max_bookings %>
+  <%= f.number_field :max_bookings %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price, step: "0.01" %>
+
+  <%= f.hidden_field :creator_id, :value => current_user.id %>
+
+  <%= f.submit %>
 <% end %>
