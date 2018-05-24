@@ -1,10 +1,19 @@
+<% provide(:title, "Events") %>
+
 <h1>Events</h1>
 
 <% @events.each do |event| %>
 
-    <%= link_to 'Show', event %>
-    <%= link_to 'Edit', edit_event_path(event) %>
-    <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to event.title, event %>
+
+  <% if user_signed_in? %>
+    <ul>
+      <li><%= link_to 'Edit', edit_event_path(event) %></li>
+      <li><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  <% end %>
 <% end %>
 
-<%= link_to 'New Event', new_event_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>

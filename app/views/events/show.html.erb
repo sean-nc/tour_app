@@ -1,2 +1,16 @@
+<% provide(:title, @event.title) %>
+
+<h1><%= @event.title %></h1>
+
+  <p>When: <%= @event.when %></p>
+
+  <p>Details: <%= @event.details %></p>
+
+  <p>Duration of event: <%= @event.duration %></p>
+
+  <p>Open spots: <%= @event.max_bookings %></p>
+
+  <p>Price: $<%= @event.price %></p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
