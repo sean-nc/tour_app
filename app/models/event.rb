@@ -8,4 +8,8 @@ class Event < ApplicationRecord
   validates :max_bookings, presence: true
   validates :price, presence: true
   validates :creator_id, presence: true
+
+  def price_in_cents
+    (self.price * 100).round
+  end
 end

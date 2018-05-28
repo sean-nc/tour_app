@@ -12,5 +12,7 @@
 
   <p>Price: $<%= @event.price %></p>
 
+  <%= link_to "Book Tour", new_charge_path(:event => @event) %>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
