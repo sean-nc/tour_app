@@ -8,7 +8,13 @@
 
 <p>Duration of event: <%= @event.duration %></p>
 
-<p>Open spots: <%= @event.max_bookings %></p>
+<p>Open spots:
+  <% if @open_spots > 0 %>
+    <%= @open_spots %>
+  <% else %>
+    None
+  <% end %>
+</p>
 
 <p>Price: $<%= @event.price_in_dollars %></p>
 
@@ -23,6 +29,8 @@
   <%= number_field_tag(:number_of_guests, 1, min: 1, step: 1, required: true) %>
 
   <%= hidden_field_tag :event, @event.id, remote: true %>
+
+  <%= hidden_field_tag :open_spots, @open_spots, remote: true %>
 
   <%=submit_tag("Book Tour") %>
 <% end %>

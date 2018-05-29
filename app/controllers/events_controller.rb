@@ -7,6 +7,12 @@ class EventsController < ApplicationController
   end
 
   def show
+    @bookings = @event.bookings.all
+    @number_of_guests = 0
+    @bookings.each do |b|
+      @number_of_guests += b.number_of_guests.to_i
+    end
+    @open_spots = @event.max_bookings - @number_of_guests
   end
 
   def new
