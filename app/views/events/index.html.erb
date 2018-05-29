@@ -4,7 +4,8 @@
 
 <% @events.each do |event| %>
 
-  <%= link_to event.title, event %>
+  <h2><%= link_to event.title, event %></h2>
+  <h4><%= event.when %></h4>
 
   <% if user_signed_in? %>
     <ul>
