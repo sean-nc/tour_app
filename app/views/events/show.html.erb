@@ -2,17 +2,30 @@
 
 <h1><%= @event.title %></h1>
 
-  <p>When: <%= @event.when %></p>
+<p>When: <%= @event.when %></p>
 
-  <p>Details: <%= @event.details %></p>
+<p>Details: <%= @event.details %></p>
 
-  <p>Duration of event: <%= @event.duration %></p>
+<p>Duration of event: <%= @event.duration %></p>
 
-  <p>Open spots: <%= @event.max_bookings %></p>
+<p>Open spots: <%= @event.max_bookings %></p>
 
-  <p>Price: $<%= @event.price %></p>
+<p>Price: $<%= @event.price_in_dollars %></p>
 
-  <%= link_to "Book Tour", new_charge_path(:event => @event) %>
+<%= form_tag("/charges/new", method: "get") do %>
+  <%= label_tag(:first_name, "First Name:") %>
+  <%= text_field_tag(:first_name, nil, required: true) %>
+
+  <%= label_tag(:last_name, "Last Name:") %>
+  <%= text_field_tag(:last_name, nil, required: true) %>
+
+  <%= label_tag(:number_of_guests, "Number of Tickets:") %>
+  <%= number_field_tag(:number_of_guests, 1, min: 1, step: 1, required: true) %>
+
+  <%= hidden_field_tag :event, @event.id, remote: true %>
+
+  <%=submit_tag("Book Tour") %>
+<% end %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

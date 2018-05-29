@@ -6,16 +6,23 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: <%= @event.price %></span>
+      <span>Amount: <%= @event.price_in_dollars %></span>
     </label>
   </article>
 
-  <%= hidden_field_tag :event_id, @event.id, remote: true %>
+  <%= hidden_field_tag :number_of_guests, @booking.number_of_guests, remote: true %>
 
+  <%= hidden_field_tag :event_id, @booking.event_id, remote: true %>
+
+  <%= hidden_field_tag :first_name, @booking.first_name, remote: true %>
+
+  <%= hidden_field_tag :last_name, @booking.last_name, remote: true %>
+
+  <%= hidden_field_tag :amount, @amount, remote: true %>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="<%= @event.title %>"
-          data-amount="<%= @event.price_in_cents %>"
+          data-amount="<%= @amount %>"
           data-locale="auto"></script>
 <% end %>

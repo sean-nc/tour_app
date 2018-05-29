@@ -17,8 +17,8 @@
   <%= f.label :max_bookings %>
   <%= f.number_field :max_bookings %>
 
-  <%= f.label :price %>
-  <%= f.number_field :price, step: "0.01" %>
+  <%= f.label :price, "Price in cents" %>
+  <%= f.number_field :price, step: 1 %>
 
   <%= f.hidden_field :creator_id, :value => current_user.id %>
 

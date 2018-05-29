@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   validates :price, presence: true
   validates :creator_id, presence: true
 
-  def price_in_cents
-    (self.price * 100).round
+  def price_in_dollars
+    '%.2f' % (self.price.to_i/100.0)
   end
 end

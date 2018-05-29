@@ -1,1 +1,3 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<h2>Price: <%= @booking.price_in_dollars %></h2>
+<h2>Number of Tickets: <%= @booking.number_of_guests %></h2>
+<h2>Spent: <%= '%.2f' % (@amount.to_i/100.0) %></h2>

@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.string :duration
       t.text :details
       t.integer :max_bookings
-      t.float :price
+      t.integer :price
 
       t.timestamps
     end
