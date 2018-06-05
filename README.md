@@ -1,10 +1,8 @@
 # Tour Booking Application
 
-#### An application for booking tours
+https://deli-tours.herokuapp.com/
 
-```
-This app is meant as practice and therefore may seem incomplete or not styled properly.
-```
+#### An application for booking tours
 
 * Rails 5.1.6
 
@@ -35,3 +33,7 @@ Configured Stripe by adding:
 * quantity of purchases
 * added a booking system when a purchase is made
 ```
+
+#### For Practice Purposes
+
+This app was made for practice and isn't a completed project, I realize there are major gaps in it, most noticeably the styling. I do not intend to update or finish this app any further.
